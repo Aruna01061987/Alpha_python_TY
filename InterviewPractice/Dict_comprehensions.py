@@ -145,3 +145,4 @@ string = "python"
 
 ascii_dict = {char: ord(char) for char in string}
 print(ascii_dict)
+

@@ -72,5 +72,37 @@ pytest test_sample.py -n 5
 
 The number 5 indicates that we want to run 5 different tests in parallel
 
+***** Fixtures *********
+
+Fixture is method/ generator that is decorated with inbuilt @fixture decorator
+
+It is used to execute some line of code repeatedly before and/or after the test method/ class / module based on
+the scope defined in the fixture
+
+We can use fixture for setup and teardown process of test methods
+
+Fixtures are accessed by test functions by passing the name of the fixture as an argument ot the test methods
+
+from pytest import fixture
+
+driver = None
+@fixture(scope='module')
+def init_driver():
+    global driver
+    print("------------test setup begin-------------")
+    driver = webdriver.Chrome("./chromedriver.exe")
+    driver.maximize_window()
+    driver.implicitly_wait(10)
+    driver.delete_all_cookies()
+    driver.get("https://google.com")
+    yield
+    print("--------------test end------------------")
+    driver.quit()
+
+def test_google_title(init_driver):
+    assert driver.title == "Google"
+
+def test_google_url(init_driver):
+    assert driver.current_url == "https://www.google.com/"
 
 
