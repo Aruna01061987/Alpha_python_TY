@@ -186,20 +186,33 @@ import datetime
 # print(sum)
 
 #WAP to find the number of digits in a no
-def no_digits(num):
-    count = 0
-    while(num > 0):
+# def no_digits(num):
+#     count = 0
+#     while(num > 0):
+#         num = num // 10
+#         count += 1
+#     print("number of digits is:", count)
+#
+# num = int(input("enter the number: "))
+# no_digits(num)
+
+#WAP to return the first digit of a given number
+
+def first_digit(num):
+    while(num >= 10):
         num = num // 10
-        count += 1
-    print("number of digits is:", count)
+    return num
 
 num = int(input("enter the number: "))
-no_digits(num)
+print(first_digit(num))
 
-
-
-
-
-
-
-
+# def first_digit(number):
+#     while (number >= 10):
+#         number = number // 10
+#     return number
+#
+# num = int(input("Please Enter any Number: "))
+#
+# firstDigit = first_digit(num)
+#
+# print("The First Digit from a Given Number {0} = {1}".format(num, firstDigit))
