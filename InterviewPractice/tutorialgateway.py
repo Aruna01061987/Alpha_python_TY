@@ -186,17 +186,15 @@ import datetime
 # print(sum)
 
 #WAP to find the number of digits in a no
+def no_digits(num):
+    count = 0
+    while(num > 0):
+        num = num // 10
+        count += 1
+    print("number of digits is:", count)
 
 num = int(input("enter the number: "))
-count = 0
-while(num > 0):
-    num = num // 10
-    count += 1
-print("number of digits is:", count)
-
-
-
-
+no_digits(num)
 
 
 
